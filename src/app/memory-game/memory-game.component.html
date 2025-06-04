@@ -1,1 +1,15 @@
-<p>memory-game works!</p>
+<div class="game-container">
+  <h2 class="section-title animate-fade-in">Igra pamćenja</h2>
+  <div class="game-grid">
+    <div *ngFor="let card of cards" 
+         (click)="flipCard(card)"
+         class="card"
+         [class.matched]="card.matched"
+         [class.flipped]="card.flipped && !card.matched"
+         [class.animate-flip]="card.flipped">
+      {{ card.flipped || card.matched ? card.value : '' }}
+    </div>
+  </div>
+  <div *ngIf="gameWon" class="win-message">Čestitamo! Pobedili ste!</div>
+  <button (click)="resetGame()" class="reset-button">Nova igra</button>
+</div>

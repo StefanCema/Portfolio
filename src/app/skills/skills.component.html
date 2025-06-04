@@ -1,1 +1,11 @@
-<p>skills works!</p>
+<div class="skills-container">
+  <h2 class="section-title animate-fade-in">Veštine</h2>
+  <div class="skills-grid">
+    <div *ngFor="let skill of skills" class="skill-item">
+      <label class="skill-label">{{ skill.name }}</label>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width]="skill.level"></div>
+      </div>
+    </div>
+  </div>
+</div>
